@@ -19,7 +19,7 @@ export default class CreateTransactionsTable1598723154353 implements MigrationIn
         },
         {
           name: 'value',
-          type: 'decimal',
+          type: 'real',
         },
         {
           name: 'type',
