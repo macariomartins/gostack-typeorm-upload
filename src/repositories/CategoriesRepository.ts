@@ -1,8 +1,8 @@
-import { EntityRepository, Repository } from "typeorm";
-import Category from "../models/Category";
+import { EntityRepository, Repository } from 'typeorm';
+import Category from '../models/Category';
 
 @EntityRepository(Category)
-export default class CategoriesRepository extends Repository<Category>{
+export default class CategoriesRepository extends Repository<Category> {
   public async findByTitleOrCreate(title: string): Promise<Category> {
     const category = await this.findOne({ where: { title } });
 

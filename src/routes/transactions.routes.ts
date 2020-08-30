@@ -4,9 +4,6 @@ import TransactionsRepository from '../repositories/TransactionsRepository';
 import CreateTransactionService from '../services/CreateTransactionService';
 import DeleteTransactionService from '../services/DeleteTransactionService';
 
-// import DeleteTransactionService from '../services/DeleteTransactionService';
-// import ImportTransactionsService from '../services/ImportTransactionsService';
-
 const transactionsRouter = Router();
 
 transactionsRouter.get('/', async (request, response) => {
@@ -16,7 +13,7 @@ transactionsRouter.get('/', async (request, response) => {
 
   return response.json({
     transactions,
-    balance
+    balance,
   });
 });
 
@@ -24,7 +21,12 @@ transactionsRouter.post('/', async (request, response) => {
   const { title, value, type, category } = request.body;
   const createTransactionService = new CreateTransactionService();
 
-  const transaction = await createTransactionService.execute({ title, value, type, categoryTitle: category });
+  const transaction = await createTransactionService.execute({
+    title,
+    value,
+    type,
+    categoryTitle: category,
+  });
 
   return response.json(transaction);
 });
